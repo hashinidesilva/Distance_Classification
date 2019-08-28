@@ -39,6 +39,9 @@ model = tf.keras.models.Sequential([
   tf.keras.layers.Dense(8, activation=tf.nn.relu),
   tf.keras.layers.Dense(3, activation=tf.nn.softmax)
 ])
+
+print(x_test)
+
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
