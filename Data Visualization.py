@@ -80,23 +80,48 @@ import numpy as np
 # plt.legend()
 # plt.plot(x1, r1,'r-',x1,r4,'b-',x1,r9,'g-')
 # plt.show()
-win_size=10
-file=pd.read_csv("/home/hashini/Documents/WalkingRSSI/walkingtest1Raw.csv")
-raw_rssi=file["raw_rssi"]
-mean_rssi=file["mean_rssi"]
-SD=file["standard_deviation"]
-x=np.arange(len(SD)-win_size)
-fig, ax = plt.subplots()
-ax.plot(x,raw_rssi[win_size:],'r',label="Raw RSSI")
-ax.plot(x,mean_rssi[win_size:],'b',label="Mean RSSI")
-# ax.plot(x,SD[win_size:],'g',label="Standard Deviation")
-legend = ax.legend(loc='lower right', shadow=True, fontsize='small')
-plt.plot(x,SD[win_size:])
+win_size = 10
+file1 = pd.read_csv("/home/hashini/Documents/WalkingRSSI/moving data 0829/40Raw.csv")
+file2 = pd.read_csv("/home/hashini/Documents/WalkingRSSI/moving data 0829/41Raw.csv")
+file3 = pd.read_csv("/home/hashini/Documents/WalkingRSSI/moving data 0829/43Raw.csv")
+file4 = pd.read_csv("/home/hashini/Documents/WalkingRSSI/moving data 0829/44Raw.csv")
+fig,ax=plt.subplots()
+ax.scatter((file4["raw_rssi"])[win_size:],(file4["standard_deviation"])[win_size:])
+# for i in range(len(file1["raw_rssi"])-win_size):
+#     ax.scatter(((file1["raw_rssi"])[win_size:])[i], ((file1["standard_deviation"])[win_size:])[i],color=colors[iris['class'][i]])
+ax.set_xlabel("raw_rssi")
+ax.set_ylabel("standard_deviation")
+plt.show()
+# file = [file1, file2, file3, file4]
+# raw_rssi = []
+# mean_rssi = []
+# SD = []
+# for i in range(len(file)):
+#     raw_rssi.append((file[i])["raw_rssi"])
+#     mean_rssi.append((file[i])["mean_rssi"])
+#     SD.append((file[i])["standard_deviation"])
+#
+
+# raw_rssi_1=file1["raw_rssi"]
+# mean_rssi_1=file1["mean_rssi"]
+# SD=file["standard_deviation"]
+# for j in range(len(raw_rssi)):
+#     x = np.arange(len(mean_rssi[j])-win_size)
+#     fig, ax = plt.subplots()
+#     # ax.plot(x, (raw_rssi[j])[win_size:], 'r', label="Raw RSSI")
+#     # ax.plot(x, (mean_rssi[j])[win_size:], 'b', label="Mean RSSI")
+#     ax.plot(x, (SD[j])[win_size:],'g',label="Standard Deviation")
+#     plt.show()
+# # ax.plot(x,SD[win_size:],'g',label="Standard Deviation")
+# legend = ax.legend(loc='lower right', shadow=True, fontsize='small')
+
 # plt.plot(x,raw_rssi[win_size:],'r',x,mean_rssi[win_size:],'b',x,SD[win_size:],'g')
 # # handles, labels = ax.get_legend_handles_labels()
 # # ax.legend(handles, labels)
 
-plt.show()
-plt.figure()
-plt.plot(x,SD[win_size:])
-plt.show()
+# plt.show()
+# plt.figure()
+# plt.plot(x,SD[win_size:])
+# plt.show()
+
+

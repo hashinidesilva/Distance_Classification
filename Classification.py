@@ -34,7 +34,7 @@ y_unknown=unknown["distance"].tolist()
 # print(x_unknown)
 # print(y_unknown)
 model = tf.keras.models.Sequential([
-  tf.keras.layers.Dense(4,input_shape=[1],activation=tf.nn.relu),
+  tf.keras.layers.Dense(4, input_shape=[1], activation=tf.nn.relu),
   tf.keras.layers.Dense(8, activation=tf.nn.relu),
   tf.keras.layers.Dense(8, activation=tf.nn.relu),
   tf.keras.layers.Dense(3, activation=tf.nn.softmax)
